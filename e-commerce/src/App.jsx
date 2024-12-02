@@ -9,6 +9,7 @@ import CheckoutForm from "./components/CheckoutForm";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ProductCard from "./components/ProductCard";
+import { GiCrossedBones } from "react-icons/gi";
 
 const App = () => {
   const products = [
@@ -533,9 +534,9 @@ const App = () => {
                   {/* Close Button for Mobile */}
                   <button
                     onClick={() => setIsSidebarOpen(false)}
-                    className="md:hidden absolute top-4 right-4 text-gray-700 bg-gray-200 rounded-full p-2 shadow"
+                    className="md:hidden absolute top-7 right-7 shadow-sm hover:shadow-md scale-105 duration-300 text-red-600 hover:text-red-700 bg-gray-200 rounded-full  py-4 px-4 "
                   >
-                    Close ✕
+                    <GiCrossedBones />
                   </button>
                   <ProductFilterSidebar onFilterChange={handleFilterChange} />
                 </div>
@@ -544,7 +545,7 @@ const App = () => {
                 {!isSidebarOpen && (
                   <button
                     onClick={() => setIsSidebarOpen(true)}
-                    className="block md:hidden fixed bottom-4 right-4 z-50 bg-blue-500 text-white rounded-full p-4 shadow-lg"
+                    className="block md:hidden fixed bottom-4 right-4 z-50 bg-cyan-600 text-white rounded-full text-xs py-4 px-2 font-serif shadow-md hover:shadow-lg"
                   >
                     Filters
                   </button>
