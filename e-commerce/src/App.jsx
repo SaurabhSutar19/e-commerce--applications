@@ -455,6 +455,7 @@ const App = () => {
     JSON.parse(localStorage.getItem("wishlist")) || []
   );
   const [filteredProducts, setFilteredProducts] = useState(products);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleFilterChange = (filters) => {
     setFilteredProducts(
@@ -523,9 +524,30 @@ const App = () => {
             element={
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 {/* Sidebar Section */}
-                <div className="md:col-span-1 bg-gray-100 p-4 h-auto md:h-screen md:sticky md:top-0 overflow-y-auto">
+                <div
+                  className={`fixed inset-0 z-40 bg-white transform ${
+                    isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+                  } transition-transform md:relative md:translate-x-0 md:col-span-1 bg-gray-100 p-4 h-auto md:h-screen md:sticky md:top-0 overflow-y-auto`}
+                >
+                  {/* Close Button for Mobile */}
+                  <button
+                    onClick={() => setIsSidebarOpen(false)}
+                    className="md:hidden absolute top-4 right-4 text-gray-700 bg-gray-200 rounded-full p-2 shadow"
+                  >
+                    Close ✕
+                  </button>
                   <ProductFilterSidebar onFilterChange={handleFilterChange} />
                 </div>
+
+                {/* Toggle Button for Mobile */}
+                {!isSidebarOpen && (
+                  <button
+                    onClick={() => setIsSidebarOpen(true)}
+                    className="block md:hidden fixed bottom-4 right-4 z-50 bg-blue-500 text-white rounded-full p-4 shadow-lg"
+                  >
+                    Filters
+                  </button>
+                )}
 
                 {/* Product Grid Section */}
                 <div className="md:col-span-3 p-4">
