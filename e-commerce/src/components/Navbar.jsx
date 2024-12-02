@@ -6,7 +6,7 @@ const Navbar = ({ cartCount, wishlistCount }) => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  const closeMenu = () => setIsMenuOpen(false); // Function to close the menu
+  const closeMenu = () => setIsMenuOpen(false);
 
   const menuItems = [
     { name: "Home", path: "/" },
@@ -50,15 +50,17 @@ const Navbar = ({ cartCount, wishlistCount }) => {
         {/* Navigation Links */}
         <div
           id="mobile-menu"
-          className={`absolute top-0 left-0 w-full bg-gray-800 p-6 space-y-4 z-40 transform ${
-            isMenuOpen ? "translate-x-0" : "-translate-x-full"
-          } lg:transform-none lg:relative lg:top-auto lg:left-auto lg:w-auto lg:bg-transparent lg:flex lg:space-x-6 transition-transform duration-300`}
+          className={`${
+            isMenuOpen
+              ? "absolute top-0 left-0 w-full bg-gray-800 p-6 space-y-4 z-40"
+              : "hidden"
+          } lg:flex lg:space-x-6 lg:relative lg:top-auto lg:left-auto lg:w-auto lg:bg-transparent lg:space-y-0 lg:p-0 transition-transform duration-300`}
         >
           {menuItems.map((item, index) => (
             <Link
               key={index}
               to={item.path}
-              onClick={closeMenu} // Close the menu on link click
+              onClick={closeMenu}
               className="block lg:inline hover:bg-gray-700 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300"
             >
               {item.name}
