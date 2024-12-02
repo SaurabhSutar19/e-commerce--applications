@@ -525,9 +525,9 @@ const App = () => {
               <div className="grid grid-cols-1 md:grid-cols-[250px_auto] gap-6">
                 {/* Sidebar Section */}
                 <div
-                  className={`fixed inset-0 z-40 bg-white transform ${
+                  className={`fixed inset-0 z-40  transform ${
                     isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-                  } transition-transform duration-300 ease-in-out md:relative md:translate-x-0 bg-gray-100 p-4 h-auto md:h-screen md:sticky md:top-0 overflow-y-auto`}
+                  } transition-transform duration-300 ease-in-out md:relative md:translate-x-0  p-4 h-auto md:h-screen md:sticky md:top-0 overflow-y-auto`}
                   style={{ width: "250px" }} // Fixed sidebar width
                 >
                   {/* Close Button for Mobile */}
