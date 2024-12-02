@@ -522,12 +522,13 @@ const App = () => {
           <Route
             path="/"
             element={
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-[250px_auto] gap-6">
                 {/* Sidebar Section */}
                 <div
                   className={`fixed inset-0 z-40 bg-white transform ${
                     isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-                  } transition-transform md:relative md:translate-x-0 md:col-span-1 bg-gray-100 p-4 h-auto md:h-screen md:sticky md:top-0 overflow-y-auto`}
+                  } transition-transform duration-300 ease-in-out md:relative md:translate-x-0 bg-gray-100 p-4 h-auto md:h-screen md:sticky md:top-0 overflow-y-auto`}
+                  style={{ width: "250px" }} // Fixed sidebar width
                 >
                   {/* Close Button for Mobile */}
                   <button
@@ -550,7 +551,7 @@ const App = () => {
                 )}
 
                 {/* Product Grid Section */}
-                <div className="md:col-span-3 p-4">
+                <div className="p-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {filteredProducts.map((product) => (
                       <ProductCard

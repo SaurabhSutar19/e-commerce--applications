@@ -207,7 +207,7 @@ const CheckoutForm = ({ cart }) => {
         <h4 className="text-lg text-center text-gray-700 font-semibold mb-2">
           Order Summary
         </h4>
-        <ul className="list-disc ml-32 text-gray-600 font-semibold pl-5 mb-4">
+        <ul className="list-disc  text-gray-600 font-semibold pl-5 mb-4">
           {cart.map((item) => (
             <li key={item.id}>
               {item.title} - {item.quantity} x {"\u20B9"}

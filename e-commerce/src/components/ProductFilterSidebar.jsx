@@ -91,7 +91,7 @@ export default function ProductFilterSidebar({ onFilterChange }) {
   return (
     <div
       className={`p-4 bg-white rounded-xl shadow-md hover:shadow-lg max-h-fit ${
-        sidebarCollapsed ? "w-16" : "w-80"
+        sidebarCollapsed ? "w-16" : "w-full"
       }`}
     >
       {/* Sidebar Header */}
