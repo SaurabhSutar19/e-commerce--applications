@@ -545,7 +545,7 @@ const App = () => {
                 {!isSidebarOpen && (
                   <button
                     onClick={() => setIsSidebarOpen(true)}
-                    className="block md:hidden fixed bottom-4 right-4 z-50 bg-cyan-600 text-white rounded-full text-xs py-4 px-2 font-serif shadow-md hover:shadow-lg"
+                    className="block md:hidden fixed bottom-4 right-4 z-50 bg-cyan-600 text-white rounded-full text-xs py-4 px-2 font-serif shadow-md hover:shadow-lg scale-105"
                   >
                     Filters
                   </button>
