@@ -521,17 +521,24 @@ const App = () => {
           <Route
             path="/"
             element={
-              <div className="flex">
-                <ProductFilterSidebar onFilterChange={handleFilterChange} />
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-32">
-                  {filteredProducts.map((product) => (
-                    <ProductCard
-                      key={product.id}
-                      product={product}
-                      onAddToCart={addToCart}
-                      onAddToWishlist={handleAddToWishlist}
-                    />
-                  ))}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                {/* Sidebar Section */}
+                <div className="md:col-span- bg-gray-100 p-4 h-auto md:h-screen md:sticky md:top-0 overflow-y-auto">
+                  <ProductFilterSidebar onFilterChange={handleFilterChange} />
+                </div>
+
+                {/* Product Grid Section */}
+                <div className="md:col-span-3 p-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {filteredProducts.map((product) => (
+                      <ProductCard
+                        key={product.id}
+                        product={product}
+                        onAddToCart={addToCart}
+                        onAddToWishlist={handleAddToWishlist}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             }
