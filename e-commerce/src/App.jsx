@@ -523,7 +523,7 @@ const App = () => {
             element={
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 {/* Sidebar Section */}
-                <div className="md:col-span- bg-gray-100 p-4 h-auto md:h-screen md:sticky md:top-0 overflow-y-auto">
+                <div className="md:col-span-1 bg-gray-100 p-4 h-auto md:h-screen md:sticky md:top-0 overflow-y-auto">
                   <ProductFilterSidebar onFilterChange={handleFilterChange} />
                 </div>
 
