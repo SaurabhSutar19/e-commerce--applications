@@ -82,42 +82,38 @@ const CheckoutForm = ({ cart }) => {
   };
 
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md hover:shadow-lg  max-w-lg mx-auto">
-      <form onSubmit={handleSubmit}>
-        <h3 className="text-xl font-semibold mb-4 text-center text-gray-600 hover:text-indigo-600">
+    <div className="p-4 bg-white rounded-lg shadow-md hover:shadow-lg max-w-lg sm:max-w-2xl mx-auto">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <h3 className="text-xl font-semibold text-center text-gray-600 hover:text-indigo-600">
           Checkout
         </h3>
 
         {/* Name Field */}
-        <div className="mb-4">
-          <label className="block font-bold text-gray-600 mb-1 ml-1">
-            Name :
-          </label>
+        <div>
+          <label className="block text-gray-600 font-bold mb-1">Name:</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
-            className={`border-2 rounded-lg p-2 w-full border-gray-600 hover:border-indigo-600   ${
-              errors.name ? "border-red-500" : ""
-            }`}
+            className={`border-2 rounded-lg p-2 w-full text-sm ${
+              errors.name ? "border-red-500" : "border-gray-300"
+            } focus:outline-none focus:border-indigo-500`}
           />
           {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
         </div>
 
         {/* Address Field */}
-        <div className="mb-4">
-          <label className="block font-bold text-gray-600 mb-2 ml-1">
-            Address :
-          </label>
+        <div>
+          <label className="block text-gray-600 font-bold mb-1">Address:</label>
           <input
             type="text"
             name="address"
             value={formData.address}
             onChange={handleInputChange}
-            className={`border-2 rounded-lg p-2 w-full border-gray-600 hover:border-indigo-600  ${
-              errors.address ? "border-red-500" : ""
-            }`}
+            className={`border-2 rounded-lg p-2 w-full text-sm ${
+              errors.address ? "border-red-500" : "border-gray-300"
+            } focus:outline-none focus:border-indigo-500`}
           />
           {errors.address && (
             <p className="text-red-500 text-sm">{errors.address}</p>
@@ -125,11 +121,11 @@ const CheckoutForm = ({ cart }) => {
         </div>
 
         {/* Payment Details */}
-        <h4 className="text-lg text-center font-semibold mb-2 text-gray-600 hover:text-indigo-600">
-          Payment Details
-        </h4>
-        <div className="mb-4">
-          <label className="block font-bold text-gray-600 mb-2 ml-1">
+        <div>
+          <h4 className="text-lg font-semibold text-center sm:text-left text-gray-700 mb-2">
+            Payment Details
+          </h4>
+          <label className="block text-gray-600 font-bold mb-1">
             Credit Card Number
           </label>
           <input
@@ -137,18 +133,20 @@ const CheckoutForm = ({ cart }) => {
             name="creditCard"
             value={formData.creditCard}
             onChange={handleInputChange}
-            className={`border-2 rounded-lg p-2 w-full border-gray-600 hover:border-indigo-600 ${
-              errors.creditCard ? "border-red-500" : ""
-            }`}
+            className={`border-2 rounded-lg p-2 w-full text-sm ${
+              errors.creditCard ? "border-red-500" : "border-gray-300"
+            } focus:outline-none focus:border-indigo-500`}
             maxLength={16}
           />
           {errors.creditCard && (
             <p className="text-red-500 text-sm">{errors.creditCard}</p>
           )}
         </div>
-        <div className="grid grid-cols-2 gap-4 mb-4">
+
+        {/* Expiry Date and CVV */}
+        <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block font-bold text-gray-600 mb-2 ml-1">
+            <label className="block text-gray-600 font-bold mb-1">
               Expiry Date (MM/YY)
             </label>
             <input
@@ -156,9 +154,9 @@ const CheckoutForm = ({ cart }) => {
               name="expiryDate"
               value={formData.expiryDate}
               onChange={handleInputChange}
-              className={`border-2 rounded-lg p-2 w-full border-gray-600 hover:border-indigo-600 ${
-                errors.expiryDate ? "border-red-500" : ""
-              }`}
+              className={`border-2 rounded-lg p-2 w-full text-sm ${
+                errors.expiryDate ? "border-red-500" : "border-gray-300"
+              } focus:outline-none focus:border-indigo-500`}
               maxLength={5}
             />
             {errors.expiryDate && (
@@ -166,26 +164,24 @@ const CheckoutForm = ({ cart }) => {
             )}
           </div>
           <div>
-            <label className="block font-bold text-gray-600 mb-2 ml-1">
-              CVV
-            </label>
+            <label className="block text-gray-600 font-bold mb-1">CVV</label>
             <input
               type="text"
               name="cvv"
               value={formData.cvv}
               onChange={handleInputChange}
-              className={`border-2 rounded-lg p-2 w-full border-gray-600 hover:border-indigo-600 ${
-                errors.cvv ? "border-red-500" : ""
-              }`}
+              className={`border-2 rounded-lg p-2 w-full text-sm ${
+                errors.cvv ? "border-red-500" : "border-gray-300"
+              } focus:outline-none focus:border-indigo-500`}
               maxLength={3}
             />
             {errors.cvv && <p className="text-red-500 text-sm">{errors.cvv}</p>}
           </div>
         </div>
 
-        {/* Contact Information */}
-        <div className="mb-4">
-          <label className="block font-bold text-gray-600 mb-2 ml-1">
+        {/* Contact Field */}
+        <div>
+          <label className="block text-gray-600 font-bold mb-1">
             Contact Number
           </label>
           <input
@@ -193,9 +189,9 @@ const CheckoutForm = ({ cart }) => {
             name="contact"
             value={formData.contact}
             onChange={handleInputChange}
-            className={`border-2 rounded-lg p-2 w-full border-gray-600 hover:border-indigo-600 ${
-              errors.contact ? "border-red-500" : ""
-            }`}
+            className={`border-2 rounded-lg p-2 w-full text-sm ${
+              errors.contact ? "border-red-500" : "border-gray-300"
+            } focus:outline-none focus:border-indigo-500`}
             maxLength={10}
           />
           {errors.contact && (
@@ -204,42 +200,44 @@ const CheckoutForm = ({ cart }) => {
         </div>
 
         {/* Order Summary */}
-        <h4 className="text-lg text-center text-gray-700 font-semibold mb-2">
-          Order Summary
-        </h4>
-        <ul className="list-disc ml-32 text-gray-600 font-semibold pl-5 mb-4">
-          {cart.map((item) => (
-            <li key={item.id}>
-              {item.title} - {item.quantity} x {"\u20B9"}
-              {item.price.toFixed(2)}
-            </li>
-          ))}
-        </ul>
-        <p className="text-right font-bold text-gray-900">
-          Total: {"\u20B9"}
-          {calculateTotal().toFixed(2)}
-        </p>
+        <div>
+          <h4 className="text-lg font-semibold text-center sm:text-left text-gray-700">
+            Order Summary
+          </h4>
+          <ul className="list-disc text-sm pl-5">
+            {cart.map((item) => (
+              <li key={item.id}>
+                {item.title} - {item.quantity} x {"\u20B9"}
+                {item.price.toFixed(2)}
+              </li>
+            ))}
+          </ul>
+          <p className="text-right font-bold">
+            Total: {"\u20B9"}
+            {calculateTotal().toFixed(2)}
+          </p>
+        </div>
 
         {/* Submit Button */}
         <button
           type="submit"
           disabled={isSubmitting}
-          className={` w-full py-2 rounded-lg text-white font-serif ${
+          className={`w-full py-2 rounded-lg text-white ${
             isSubmitting
               ? "bg-gray-400"
-              : "bg-blue-600 hover:bg-blue-700 hover:scale-105 transition-transform duration-300"
+              : "bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300"
           }`}
         >
           {isSubmitting ? "Placing Order..." : "Place Order"}
         </button>
       </form>
 
-      {/* Navigation to Order Confirmation */}
+      {/* Order Confirmation */}
       {!isSubmitting && (
         <div className="mt-4 text-center">
           <NavLink
             to="/order-confirmation"
-            className="text-blue-600 hover:underline hover:text-green-600"
+            className="text-blue-600 hover:underline"
           >
             View Order Confirmation
           </NavLink>
